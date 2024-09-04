@@ -15,6 +15,7 @@ body {
   background-image:url("img/bg.jpg") ;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color:#1a5e5a ;
 
  
   
@@ -135,6 +136,10 @@ body {
 
 .cover {
   background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
-    hsl(231, 32%, 29%) url("img/WhatsApp\ Image\ 2024-08-16\ at\ 8.52.47\ PM.jpeg") 50% / cover;
+    hsl(231, 32%, 29%) url("heart.gif") 50% / cover;
   color: hsl(200 30% 98%);
+  text-align:center;
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
 }
