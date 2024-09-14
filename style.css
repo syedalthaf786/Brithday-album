@@ -5,20 +5,17 @@
 body {
   /* or any other parent wrapper */
   margin: 0;
+  padding:0;
   display: flex;
   min-height: 100dvh;
   perspective: 1000px;
   font: 1em/1.4 "Poppins", sans-serif;
   overflow: hidden;
-  color: hsl(180 68% 5%);
-
+  color: hsl(0, 0%, 4%);
   background-image:url("img/bg.jpg") ;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color:#1a5e5a ;
-
- 
-  
+  background-color:#012926;
 }
 
 .book {
@@ -33,6 +30,12 @@ body {
   translate: calc(min(var(--c), 1) * 50%) 0%;
   /* Incline on the X axis for pages preview */
   rotate: 1 0 0 30deg;
+}
+h3{
+  text-align: center;
+  color:red;
+  position: relative;
+  left:42%;
 }
 
 .page {
@@ -135,11 +138,139 @@ body {
 }
 
 .cover {
-  background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
-    hsl(231, 32%, 29%) url("heart.gif") 50% / cover;
-  color: hsl(200 30% 98%);
+  /* background: radial-gradient(circle farthest-corner at 80% 20%, hsla(0, 0%, 0%, 0.3) 0%, hsla(0, 0%, 0%, 0.1) 100%),
+    hsl(0, 0%, 0%) url("tap.gif") 50% / cover;*/
+    background: radial-gradient(circle farthest-corner at 80% 20%, 
+                             hsla(0, 0%, 0%, 0.3) 0%, 
+                             hsla(0, 0%, 0%, 0.1) 100%), 
+            hsl(0, 0%, 0%) url("tap.gif") 50% / cover;
+filter: blur(1px);
+  color: hsl(200 30% 98%); 
   text-align:center;
   font-size: 1.5em;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
+}
+.front .cover img{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.one {
+  color: blue;
+  font-family: monospace;
+  font-weight: bolder;
+  font-style: italic;
+  opacity: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.one:hover {
+  color: red;
+  font-size: 18px;
+}
+h3.brithday-album {
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+h3.brithday-album span {
+  position: relative;
+}
+
+h3.brithday-album span:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ee380a;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: wave 2s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Mobile devices (max-width: 768px) */
+/* Mobile styles */
+/* Mobile devices (max-width: 768px) */
+/* Mobile Portrait (max-width: 768px and portrait mode) */
+@media (min-width: 768px) and (orientation: portrait) {
+  /* FlipBook container */
+  .book {
+    width: 100vw; /* Full viewport width */
+    height: 80vh; /* Adapt height for portrait */
+    rotate: 1 0 0 0deg; /* Remove incline on portrait mode */
+    perspective: 1000px; /* Maintain 3D effect */
+    margin: auto;
+  }
+
+  /* Pages inside the book */
+  .page {
+    font-size: 1.2em; /* Adjust font size for readability */
+    --thickness: 2; /* Reduce thickness for better fit */
+    height: 100%; /* Full height of the book */
+    transform-origin: center center; /* Adjust origin for portrait flipping */
+    padding: 1em;
+  }
+
+  /* Adjust page shadow */
+  .page {
+    box-shadow: 0em .5em 1em -.2em #00000020;
+  }
+
+  /* Front and back pages */
+  .front,
+  .back {
+    padding: 1em; /* Reduced padding for smaller screens */
+    border: 0.5px solid #0002;
+    backface-visibility: hidden;
+  }
+
+  /* Cover page */
+  .cover {
+    font-size: 1em; /* Adjust font size */
+    text-align: center;
+  }
+
+  /* Adjust the birthday album heading */
+  h3.brithday-album {
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  /* Animated text adjustment */
+  h3.brithday-album span:before {
+    font-size: 14px;
+  }
+
+  /* Text inside the FlipBook */
+  .one {
+    font-size: 14px;
+  }
+
+  /* Adjust animation for portrait mode */
+  @keyframes wave {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px); /* Slight bounce for mobile */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
